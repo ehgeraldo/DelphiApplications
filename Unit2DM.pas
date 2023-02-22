@@ -11,27 +11,8 @@ uses
   FireDAC.Comp.Client;
 
 type
-  TDM = class(TDataModule)
+  TDm = class(TDataModule)
     Connection: TFDConnection;
-    tbPacientes: TFDTable;
-    DS: TDataSource;
-    tbPacientesId: TFDAutoIncField;
-    tbPacientesNome: TStringField;
-    tbPacientesIdade: TIntegerField;
-    tbPacientesDataNascimento: TDateTimeField;
-    tbPacientesCPF: TStringField;
-    tbPacientesRG: TStringField;
-    tbPacientesRua: TStringField;
-    tbPacientesNumero: TIntegerField;
-    tbPacientesBairro: TStringField;
-    tbPacientesCidade: TStringField;
-    tbPacientesEstadoCivil: TStringField;
-    tbPacientesIndicacao: TBooleanField;
-    tbPacientesTelefoneFixo: TStringField;
-    tbPacientesTelefoneCelular: TStringField;
-    tbPacientesEmail: TStringField;
-    tbPacientesObservacoesPaciente: TMemoField;
-    tbPacientesDataCadastro: TDateField;
   private
     { Private declarations }
   public
@@ -39,7 +20,7 @@ type
   end;
 
 var
-  DM: TDM;
+  Dm: TDm;
 
 implementation
 

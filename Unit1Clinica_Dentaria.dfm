@@ -27336,10 +27336,8 @@ object FormPrincipal: TFormPrincipal
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
-    ExplicitLeft = 1
-    ExplicitTop = 103
-    ExplicitWidth = 105
-    ExplicitHeight = 105
+    ExplicitLeft = 176
+    ExplicitTop = 209
   end
   object Panel1: TPanel
     Left = 0
@@ -27354,6 +27352,7 @@ object FormPrincipal: TFormPrincipal
       Top = 1
       Width = 88
       Height = 95
+      Cursor = crHandPoint
       Align = alLeft
       Caption = 'Agendamentos'
       Glyph.Data = {
@@ -27747,11 +27746,12 @@ object FormPrincipal: TFormPrincipal
       TabOrder = 0
       OnClick = BitBtn1Click
     end
-    object BitBtn2: TBitBtn
+    object btnPacientes: TBitBtn
       Left = 1
       Top = 1
       Width = 88
       Height = 95
+      Cursor = crHandPoint
       Align = alLeft
       Caption = 'Pacientes'
       Glyph.Data = {
@@ -28143,7 +28143,7 @@ object FormPrincipal: TFormPrincipal
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
       Layout = blGlyphTop
       TabOrder = 1
-      OnClick = BitBtn2Click
+      OnClick = btnPacientesClick
     end
   end
   object MainMenu1: TMainMenu

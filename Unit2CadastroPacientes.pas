@@ -17,7 +17,7 @@ type
     Panel1: TPanel;
     Label1: TLabel;
     PageControl1: TPageControl;
-    TabSheet1: TTabSheet;
+    tshPrincipal: TTabSheet;
     DBEdit1: TDBEdit;
     Label2: TLabel;
     Label3: TLabel;
@@ -50,7 +50,7 @@ type
     Label16: TLabel;
     DBComboBox1: TDBComboBox;
     DBNavigator1: TDBNavigator;
-    TabSheet2: TTabSheet;
+    tshControle: TTabSheet;
     DBGrid1: TDBGrid;
     Label17: TLabel;
     txtNomeBusca: TEdit;
@@ -60,7 +60,30 @@ type
     Label19: TLabel;
     Label20: TLabel;
     Label21: TLabel;
+    tb_pacientes: TFDTable;
+    tb_pacientesNome: TStringField;
+    tb_pacientesIdade: TIntegerField;
+    tb_pacientesDataNascimento: TDateTimeField;
+    tb_pacientesCPF: TStringField;
+    tb_pacientesRG: TStringField;
+    tb_pacientesRua: TStringField;
+    tb_pacientesNumero: TIntegerField;
+    tb_pacientesBairro: TStringField;
+    tb_pacientesCidade: TStringField;
+    tb_pacientesEstadoCivil: TStringField;
+    tb_pacientesIndicacao: TBooleanField;
+    tb_pacientesTelefoneFixo: TStringField;
+    tb_pacientesTelefoneCelular: TStringField;
+    tb_pacientesEmail: TStringField;
+    tb_pacientesObservacoesPaciente: TMemoField;
+    tb_pacientesDataCadastro: TDateField;
+    dstb_pacientes: TDataSource;
+    tshGeral: TTabSheet;
+    dbgPacientes: TDBGrid;
+    tb_pacientesId: TFDAutoIncField;
     procedure txtNomeBuscaChange(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -76,9 +99,21 @@ implementation
 
 uses Unit2DM, Unit3Agendamentos;
 
+procedure TFormCadastroPacientes.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  tb_pacientes.Close;
+  Action := caFree;
+end;
+
+procedure TFormCadastroPacientes.FormShow(Sender: TObject);
+begin
+  tb_pacientes.Open;
+end;
+
 procedure TFormCadastroPacientes.txtNomeBuscaChange(Sender: TObject);
 begin
-DM.tbPacientes.Locate('nome',txtNomeBusca.Text,[loPartialKey]);
+  tb_pacientes.Locate('nome',txtNomeBusca.Text,[loPartialKey]);
 end;
 
 end.

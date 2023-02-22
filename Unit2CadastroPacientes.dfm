@@ -14,6 +14,8 @@ object FormCadastroPacientes: TFormCadastroPacientes
   OldCreateOrder = False
   Position = poScreenCenter
   WindowState = wsMaximized
+  OnClose = FormClose
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
@@ -23,7 +25,6 @@ object FormCadastroPacientes: TFormCadastroPacientes
     Height = 97
     Align = alTop
     TabOrder = 0
-    ExplicitWidth = 780
     object Label1: TLabel
       Left = 24
       Top = 32
@@ -42,18 +43,71 @@ object FormCadastroPacientes: TFormCadastroPacientes
       Top = 36
       Width = 240
       Height = 25
-      DataSource = DM.DSpacientes
+      DataSource = dstb_pacientes
       TabOrder = 0
     end
   end
   object PageControl1: TPageControl
-    Left = 8
-    Top = 103
-    Width = 833
-    Height = 442
-    ActivePage = TabSheet2
+    AlignWithMargins = True
+    Left = 3
+    Top = 100
+    Width = 909
+    Height = 478
+    ActivePage = tshGeral
+    Align = alClient
     TabOrder = 1
-    object TabSheet1: TTabSheet
+    object tshGeral: TTabSheet
+      Caption = 'Pesquisa'
+      ImageIndex = 2
+      object dbgPacientes: TDBGrid
+        AlignWithMargins = True
+        Left = 3
+        Top = 3
+        Width = 895
+        Height = 444
+        Align = alClient
+        DataSource = dstb_pacientes
+        TabOrder = 0
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'Id'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Nome'
+            Width = 298
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'CPF'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'TelefoneFixo'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'TelefoneCelular'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Email'
+            Visible = True
+          end>
+      end
+    end
+    object tshPrincipal: TTabSheet
       Caption = 'Principal'
       object Label2: TLabel
         Left = 11
@@ -173,7 +227,7 @@ object FormCadastroPacientes: TFormCadastroPacientes
         Width = 302
         Height = 21
         DataField = 'Nome'
-        DataSource = DM.DSpacientes
+        DataSource = dstb_pacientes
         TabOrder = 0
       end
       object DBEdit2: TDBEdit
@@ -182,8 +236,7 @@ object FormCadastroPacientes: TFormCadastroPacientes
         Width = 118
         Height = 21
         DataField = 'DataNascimento'
-        DataSource = DM.DSpacientes
-        MaxLength = 14
+        DataSource = dstb_pacientes
         TabOrder = 1
       end
       object DBEdit3: TDBEdit
@@ -192,7 +245,7 @@ object FormCadastroPacientes: TFormCadastroPacientes
         Width = 38
         Height = 21
         DataField = 'Idade'
-        DataSource = DM.DSpacientes
+        DataSource = dstb_pacientes
         TabOrder = 2
       end
       object DBEdit4: TDBEdit
@@ -201,9 +254,8 @@ object FormCadastroPacientes: TFormCadastroPacientes
         Width = 120
         Height = 21
         DataField = 'CPF'
-        DataSource = DM.DSpacientes
-        MaxLength = 14
-        TabOrder = 3
+        DataSource = dstb_pacientes
+        TabOrder = 4
       end
       object DBEdit5: TDBEdit
         Left = 171
@@ -211,9 +263,8 @@ object FormCadastroPacientes: TFormCadastroPacientes
         Width = 142
         Height = 21
         DataField = 'RG'
-        DataSource = DM.DSpacientes
-        MaxLength = 12
-        TabOrder = 4
+        DataSource = dstb_pacientes
+        TabOrder = 5
       end
       object DBEdit6: TDBEdit
         Left = 11
@@ -221,8 +272,8 @@ object FormCadastroPacientes: TFormCadastroPacientes
         Width = 246
         Height = 21
         DataField = 'Rua'
-        DataSource = DM.DSpacientes
-        TabOrder = 5
+        DataSource = dstb_pacientes
+        TabOrder = 6
       end
       object DBEdit7: TDBEdit
         Left = 11
@@ -230,8 +281,8 @@ object FormCadastroPacientes: TFormCadastroPacientes
         Width = 140
         Height = 21
         DataField = 'Bairro'
-        DataSource = DM.DSpacientes
-        TabOrder = 6
+        DataSource = dstb_pacientes
+        TabOrder = 8
       end
       object DBEdit8: TDBEdit
         Left = 171
@@ -239,8 +290,8 @@ object FormCadastroPacientes: TFormCadastroPacientes
         Width = 140
         Height = 21
         DataField = 'Cidade'
-        DataSource = DM.DSpacientes
-        TabOrder = 7
+        DataSource = dstb_pacientes
+        TabOrder = 9
       end
       object DBEdit9: TDBEdit
         Left = 467
@@ -248,9 +299,8 @@ object FormCadastroPacientes: TFormCadastroPacientes
         Width = 142
         Height = 21
         DataField = 'TelefoneFixo'
-        DataSource = DM.DSpacientes
-        MaxLength = 13
-        TabOrder = 8
+        DataSource = dstb_pacientes
+        TabOrder = 11
       end
       object DBEdit10: TDBEdit
         Left = 633
@@ -258,9 +308,8 @@ object FormCadastroPacientes: TFormCadastroPacientes
         Width = 142
         Height = 21
         DataField = 'TelefoneCelular'
-        DataSource = DM.DSpacientes
-        MaxLength = 15
-        TabOrder = 9
+        DataSource = dstb_pacientes
+        TabOrder = 12
       end
       object DBEdit11: TDBEdit
         Left = 467
@@ -268,8 +317,8 @@ object FormCadastroPacientes: TFormCadastroPacientes
         Width = 308
         Height = 21
         DataField = 'Email'
-        DataSource = DM.DSpacientes
-        TabOrder = 10
+        DataSource = dstb_pacientes
+        TabOrder = 13
       end
       object DataCadastro: TDBEdit
         Left = 654
@@ -277,9 +326,8 @@ object FormCadastroPacientes: TFormCadastroPacientes
         Width = 121
         Height = 21
         DataField = 'DataCadastro'
-        DataSource = DM.DSpacientes
-        MaxLength = 12
-        TabOrder = 11
+        DataSource = dstb_pacientes
+        TabOrder = 10
       end
       object DBCheckBox1: TDBCheckBox
         Left = 467
@@ -288,8 +336,8 @@ object FormCadastroPacientes: TFormCadastroPacientes
         Height = 17
         Caption = 'Sim'
         DataField = 'Indicacao'
-        DataSource = DM.DSpacientes
-        TabOrder = 12
+        DataSource = dstb_pacientes
+        TabOrder = 14
       end
       object DBCheckBox2: TDBCheckBox
         Left = 512
@@ -298,8 +346,8 @@ object FormCadastroPacientes: TFormCadastroPacientes
         Height = 17
         Caption = 'N'#227'o'
         DataField = 'Indicacao'
-        DataSource = DM.DSpacientes
-        TabOrder = 13
+        DataSource = dstb_pacientes
+        TabOrder = 15
       end
       object DBMemo1: TDBMemo
         Left = 467
@@ -307,8 +355,8 @@ object FormCadastroPacientes: TFormCadastroPacientes
         Width = 308
         Height = 57
         DataField = 'ObservacoesPaciente'
-        DataSource = DM.DSpacientes
-        TabOrder = 14
+        DataSource = dstb_pacientes
+        TabOrder = 16
       end
       object DBComboBox1: TDBComboBox
         Left = 208
@@ -316,24 +364,24 @@ object FormCadastroPacientes: TFormCadastroPacientes
         Width = 105
         Height = 21
         DataField = 'EstadoCivil'
-        DataSource = DM.DSpacientes
+        DataSource = dstb_pacientes
         Items.Strings = (
           'Solteiro'
           'Casado'
           'Vi'#250'vo')
-        TabOrder = 15
+        TabOrder = 3
       end
       object DBEdit13: TDBEdit
         Left = 263
         Top = 226
         Width = 56
         Height = 21
-        DataField = 'Rua'
-        DataSource = DM.DSpacientes
-        TabOrder = 16
+        DataField = 'Numero'
+        DataSource = dstb_pacientes
+        TabOrder = 7
       end
     end
-    object TabSheet2: TTabSheet
+    object tshControle: TTabSheet
       Caption = 'Controle'
       ImageIndex = 1
       object Label17: TLabel
@@ -369,7 +417,6 @@ object FormCadastroPacientes: TFormCadastroPacientes
         Top = 88
         Width = 385
         Height = 273
-        DataSource = DM.DSpacientes
         TabOrder = 0
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
@@ -414,8 +461,6 @@ object FormCadastroPacientes: TFormCadastroPacientes
         Top = 128
         Width = 145
         Height = 21
-        DataField = 'Procedimentos'
-        DataSource = DM.DSAgendamentos
         Items.Strings = (
           'Clareamento'
           'Extra'#231#227'o')
@@ -426,10 +471,117 @@ object FormCadastroPacientes: TFormCadastroPacientes
         Top = 184
         Width = 145
         Height = 21
-        DataField = 'Valor'
-        DataSource = DM.DSAgendamentos
         TabOrder = 4
       end
     end
+  end
+  object tb_pacientes: TFDTable
+    IndexFieldNames = 'Id'
+    Connection = Dm.Connection
+    UpdateOptions.UpdateTableName = 'consultaspacientes.pacientes'
+    TableName = 'consultaspacientes.pacientes'
+    Left = 352
+    Top = 184
+    object tb_pacientesId: TFDAutoIncField
+      FieldName = 'Id'
+      AutoIncrementSeed = 1
+      AutoIncrementStep = 1
+    end
+    object tb_pacientesNome: TStringField
+      FieldName = 'Nome'
+      Origin = 'Nome'
+      Required = True
+      Size = 80
+    end
+    object tb_pacientesIdade: TIntegerField
+      FieldName = 'Idade'
+      Origin = 'Idade'
+      Required = True
+    end
+    object tb_pacientesDataNascimento: TDateTimeField
+      FieldName = 'DataNascimento'
+      Origin = 'DataNascimento'
+      Required = True
+      EditMask = '## / ## / ####;1;_'
+    end
+    object tb_pacientesCPF: TStringField
+      FieldName = 'CPF'
+      Origin = 'CPF'
+      Required = True
+      EditMask = '###.###.###-##;1;_'
+    end
+    object tb_pacientesRG: TStringField
+      FieldName = 'RG'
+      Origin = 'RG'
+      Required = True
+      EditMask = '##.###.###-#;1;_'
+    end
+    object tb_pacientesRua: TStringField
+      FieldName = 'Rua'
+      Origin = 'Rua'
+      Required = True
+      Size = 80
+    end
+    object tb_pacientesNumero: TIntegerField
+      FieldName = 'Numero'
+      Origin = 'Numero'
+      Required = True
+    end
+    object tb_pacientesBairro: TStringField
+      FieldName = 'Bairro'
+      Origin = 'Bairro'
+      Required = True
+    end
+    object tb_pacientesCidade: TStringField
+      FieldName = 'Cidade'
+      Origin = 'Cidade'
+      Required = True
+      Size = 50
+    end
+    object tb_pacientesEstadoCivil: TStringField
+      FieldName = 'EstadoCivil'
+      Origin = 'EstadoCivil'
+      Required = True
+      Size = 15
+    end
+    object tb_pacientesIndicacao: TBooleanField
+      FieldName = 'Indicacao'
+      Origin = 'Indicacao'
+      Required = True
+    end
+    object tb_pacientesTelefoneFixo: TStringField
+      FieldName = 'TelefoneFixo'
+      Origin = 'TelefoneFixo'
+      Required = True
+      EditMask = '(##)####-####;1;_'
+    end
+    object tb_pacientesTelefoneCelular: TStringField
+      FieldName = 'TelefoneCelular'
+      Origin = 'TelefoneCelular'
+      Required = True
+      EditMask = '(##)# ####-####;1;_'
+    end
+    object tb_pacientesEmail: TStringField
+      FieldName = 'Email'
+      Origin = 'Email'
+      Required = True
+    end
+    object tb_pacientesObservacoesPaciente: TMemoField
+      FieldName = 'ObservacoesPaciente'
+      Origin = 'ObservacoesPaciente'
+      Required = True
+      BlobType = ftMemo
+    end
+    object tb_pacientesDataCadastro: TDateField
+      FieldName = 'DataCadastro'
+      Origin = 'DataCadastro'
+      Required = True
+      EditMask = '## /## /####;1;_'
+    end
+  end
+  object dstb_pacientes: TDataSource
+    DataSet = tb_pacientes
+    Left = 376
+    Top = 200
   end
 end
