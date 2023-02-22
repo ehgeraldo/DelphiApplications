@@ -1,0 +1,41 @@
+object FormAgendamentos: TFormAgendamentos
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu]
+  Caption = 'FormAgendamentos'
+  ClientHeight = 475
+  ClientWidth = 772
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  WindowState = wsMaximized
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 772
+    Height = 81
+    Align = alTop
+    TabOrder = 0
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 81
+    Width = 772
+    Height = 394
+    Align = alClient
+    Color = clWhite
+    ParentBackground = False
+    TabOrder = 1
+    ExplicitLeft = 360
+    ExplicitTop = 232
+    ExplicitWidth = 185
+    ExplicitHeight = 41
+  end
+end
