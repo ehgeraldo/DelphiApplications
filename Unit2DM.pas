@@ -13,6 +13,15 @@ uses
 type
   TDm = class(TDataModule)
     Connection: TFDConnection;
+    dsAgendamentos: TDataSource;
+    tbAgendamentos: TFDTable;
+    tbAgendamentosId: TIntegerField;
+    tbAgendamentosId_Pacientes: TIntegerField;
+    tbAgendamentosDataAgendamento: TDateField;
+    tbAgendamentosHoraAgendamento: TStringField;
+    tbAgendamentosProcedimentos: TStringField;
+    tbAgendamentosValor: TIntegerField;
+    tbAgendamentosObservacoesProcedimentos: TMemoField;
   private
     { Private declarations }
   public

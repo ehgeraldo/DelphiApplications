@@ -10,7 +10,7 @@ uses
   FireDAC.Phys.MySQLDef, FireDAC.VCLUI.Wait, FireDAC.Stan.Param, FireDAC.DatS,
   FireDAC.DApt.Intf, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
   FireDAC.Comp.Client, Vcl.StdCtrls, Vcl.DBCtrls, Vcl.Mask, Vcl.ComCtrls,
-  Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids;
+  Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids, Vcl.Buttons;
 
 type
   TFormCadastroPacientes = class(TForm)
@@ -18,49 +18,53 @@ type
     Label1: TLabel;
     PageControl1: TPageControl;
     tshPrincipal: TTabSheet;
-    DBEdit1: TDBEdit;
+    dbNome: TDBEdit;
     Label2: TLabel;
     Label3: TLabel;
-    DBEdit2: TDBEdit;
+    dbNascimento: TDBEdit;
     Label4: TLabel;
-    DBEdit3: TDBEdit;
+    dbIdade: TDBEdit;
     Label5: TLabel;
-    DBEdit4: TDBEdit;
+    dbCPF: TDBEdit;
     Label6: TLabel;
-    DBEdit5: TDBEdit;
+    dbRG: TDBEdit;
     Label7: TLabel;
-    DBEdit6: TDBEdit;
+    dbRuaAvenida: TDBEdit;
     Label8: TLabel;
-    DBEdit7: TDBEdit;
-    DBEdit8: TDBEdit;
+    dbBairro: TDBEdit;
+    dbCidade: TDBEdit;
     Label9: TLabel;
     Label10: TLabel;
-    DBEdit9: TDBEdit;
+    dbTelFixo: TDBEdit;
     Label11: TLabel;
-    DBEdit10: TDBEdit;
-    DBEdit11: TDBEdit;
+    dbTelCelular: TDBEdit;
+    dbEamil: TDBEdit;
     Label12: TLabel;
     Label13: TLabel;
     DataCadastro: TDBEdit;
     Label14: TLabel;
     DBCheckBox1: TDBCheckBox;
     DBCheckBox2: TDBCheckBox;
-    DBMemo1: TDBMemo;
+    dbObservacao: TDBMemo;
     Label15: TLabel;
     Label16: TLabel;
-    DBComboBox1: TDBComboBox;
+    dbEstadoCivil: TDBComboBox;
     DBNavigator1: TDBNavigator;
     tshControle: TTabSheet;
     DBGrid1: TDBGrid;
     Label17: TLabel;
     txtNomeBusca: TEdit;
-    DBEdit13: TDBEdit;
+    dbNumero: TDBEdit;
     Label18: TLabel;
     DBEdit14: TDBEdit;
     Label19: TLabel;
     Label20: TLabel;
     Label21: TLabel;
     tb_pacientes: TFDTable;
+    dstb_pacientes: TDataSource;
+    tshGeral: TTabSheet;
+    dbgPacientes: TDBGrid;
+    tb_pacientesId: TFDAutoIncField;
     tb_pacientesNome: TStringField;
     tb_pacientesIdade: TIntegerField;
     tb_pacientesDataNascimento: TDateTimeField;
@@ -77,13 +81,12 @@ type
     tb_pacientesEmail: TStringField;
     tb_pacientesObservacoesPaciente: TMemoField;
     tb_pacientesDataCadastro: TDateField;
-    dstb_pacientes: TDataSource;
-    tshGeral: TTabSheet;
-    dbgPacientes: TDBGrid;
-    tb_pacientesId: TFDAutoIncField;
+    Editar: TBitBtn;
+    BitBtn1: TBitBtn;
     procedure txtNomeBuscaChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
+    procedure tb_pacientesAfterInsert(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -109,6 +112,11 @@ end;
 procedure TFormCadastroPacientes.FormShow(Sender: TObject);
 begin
   tb_pacientes.Open;
+end;
+
+procedure TFormCadastroPacientes.tb_pacientesAfterInsert(DataSet: TDataSet);
+begin
+  tb_pacientesDataCadastro.Value := Date();
 end;
 
 procedure TFormCadastroPacientes.txtNomeBuscaChange(Sender: TObject);

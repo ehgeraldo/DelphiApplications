@@ -27744,7 +27744,6 @@ object FormPrincipal: TFormPrincipal
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
       Layout = blGlyphTop
       TabOrder = 0
-      OnClick = BitBtn1Click
     end
     object btnPacientes: TBitBtn
       Left = 1

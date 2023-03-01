@@ -23,7 +23,6 @@ type
     procedure Cadastros2Click(Sender: TObject);
     procedure Agendamentos1Click(Sender: TObject);
     procedure btnPacientesClick(Sender: TObject);
-    procedure BitBtn1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -40,11 +39,6 @@ implementation
 uses Unit2CadastroPacientes, Unit3Agendamentos;
 
 procedure TFormPrincipal.Agendamentos1Click(Sender: TObject);
-begin
-  FormAgendamentos.ShowModal;
-end;
-
-procedure TFormPrincipal.BitBtn1Click(Sender: TObject);
 begin
   FormAgendamentos.ShowModal;
 end;
