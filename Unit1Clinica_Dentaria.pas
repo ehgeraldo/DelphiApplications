@@ -17,12 +17,13 @@ type
     Agendamentos1: TMenuItem;
     Panel1: TPanel;
     BitBtn1: TBitBtn;
-    btnPacientes: TBitBtn;
+    BitBtn2: TBitBtn;
     Image1: TImage;
     procedure Sistema2Click(Sender: TObject);
     procedure Cadastros2Click(Sender: TObject);
     procedure Agendamentos1Click(Sender: TObject);
-    procedure btnPacientesClick(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -40,22 +41,22 @@ uses Unit2CadastroPacientes, Unit3Agendamentos;
 
 procedure TFormPrincipal.Agendamentos1Click(Sender: TObject);
 begin
-  FormAgendamentos.ShowModal;
+FormAgendamentos.ShowModal;
 end;
 
-procedure TFormPrincipal.btnPacientesClick(Sender: TObject);
+procedure TFormPrincipal.BitBtn1Click(Sender: TObject);
 begin
-  try
-    Application.CreateForm(TFormCadastroPacientes, FormCadastroPacientes);
-    FormCadastroPacientes.ShowModal;
-  finally
-    FreeAndNil(FormCadastroPacientes);
-  end;
+FormAgendamentos.ShowModal;
+end;
+
+procedure TFormPrincipal.BitBtn2Click(Sender: TObject);
+begin
+FormCadastroPacientes.ShowModal;
 end;
 
 procedure TFormPrincipal.Cadastros2Click(Sender: TObject);
 begin
-  FormCadastroPacientes.ShowModal;
+ FormCadastroPacientes.ShowModal;
 end;
 
 procedure TFormPrincipal.Sistema2Click(Sender: TObject);

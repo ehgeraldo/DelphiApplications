@@ -10,83 +10,57 @@ uses
   FireDAC.Phys.MySQLDef, FireDAC.VCLUI.Wait, FireDAC.Stan.Param, FireDAC.DatS,
   FireDAC.DApt.Intf, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
   FireDAC.Comp.Client, Vcl.StdCtrls, Vcl.DBCtrls, Vcl.Mask, Vcl.ComCtrls,
-  Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids, Vcl.Buttons;
+  Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids;
 
 type
   TFormCadastroPacientes = class(TForm)
     Panel1: TPanel;
     Label1: TLabel;
     PageControl1: TPageControl;
-    tshPrincipal: TTabSheet;
-    dbNome: TDBEdit;
+    TabSheet1: TTabSheet;
+    DBEdit1: TDBEdit;
     Label2: TLabel;
     Label3: TLabel;
-    dbNascimento: TDBEdit;
+    DBEdit2: TDBEdit;
     Label4: TLabel;
-    dbIdade: TDBEdit;
+    DBEdit3: TDBEdit;
     Label5: TLabel;
-    dbCPF: TDBEdit;
+    DBEdit4: TDBEdit;
     Label6: TLabel;
-    dbRG: TDBEdit;
+    DBEdit5: TDBEdit;
     Label7: TLabel;
-    dbRuaAvenida: TDBEdit;
+    DBEdit6: TDBEdit;
     Label8: TLabel;
-    dbBairro: TDBEdit;
-    dbCidade: TDBEdit;
+    DBEdit7: TDBEdit;
+    DBEdit8: TDBEdit;
     Label9: TLabel;
     Label10: TLabel;
-    dbTelFixo: TDBEdit;
+    DBEdit9: TDBEdit;
     Label11: TLabel;
-    dbTelCelular: TDBEdit;
-    dbEamil: TDBEdit;
+    DBEdit10: TDBEdit;
+    DBEdit11: TDBEdit;
     Label12: TLabel;
     Label13: TLabel;
     DataCadastro: TDBEdit;
     Label14: TLabel;
     DBCheckBox1: TDBCheckBox;
     DBCheckBox2: TDBCheckBox;
-    dbObservacao: TDBMemo;
+    DBMemo1: TDBMemo;
     Label15: TLabel;
     Label16: TLabel;
-    dbEstadoCivil: TDBComboBox;
+    DBComboBox1: TDBComboBox;
     DBNavigator1: TDBNavigator;
-    tshControle: TTabSheet;
+    TabSheet2: TTabSheet;
     DBGrid1: TDBGrid;
     Label17: TLabel;
     txtNomeBusca: TEdit;
-    dbNumero: TDBEdit;
+    DBEdit13: TDBEdit;
     Label18: TLabel;
     DBEdit14: TDBEdit;
     Label19: TLabel;
     Label20: TLabel;
     Label21: TLabel;
-    tb_pacientes: TFDTable;
-    dstb_pacientes: TDataSource;
-    tshGeral: TTabSheet;
-    dbgPacientes: TDBGrid;
-    tb_pacientesId: TFDAutoIncField;
-    tb_pacientesNome: TStringField;
-    tb_pacientesIdade: TIntegerField;
-    tb_pacientesDataNascimento: TDateTimeField;
-    tb_pacientesCPF: TStringField;
-    tb_pacientesRG: TStringField;
-    tb_pacientesRua: TStringField;
-    tb_pacientesNumero: TIntegerField;
-    tb_pacientesBairro: TStringField;
-    tb_pacientesCidade: TStringField;
-    tb_pacientesEstadoCivil: TStringField;
-    tb_pacientesIndicacao: TBooleanField;
-    tb_pacientesTelefoneFixo: TStringField;
-    tb_pacientesTelefoneCelular: TStringField;
-    tb_pacientesEmail: TStringField;
-    tb_pacientesObservacoesPaciente: TMemoField;
-    tb_pacientesDataCadastro: TDateField;
-    Editar: TBitBtn;
-    BitBtn1: TBitBtn;
     procedure txtNomeBuscaChange(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure FormShow(Sender: TObject);
-    procedure tb_pacientesAfterInsert(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -102,26 +76,9 @@ implementation
 
 uses Unit2DM, Unit3Agendamentos;
 
-procedure TFormCadastroPacientes.FormClose(Sender: TObject;
-  var Action: TCloseAction);
-begin
-  tb_pacientes.Close;
-  Action := caFree;
-end;
-
-procedure TFormCadastroPacientes.FormShow(Sender: TObject);
-begin
-  tb_pacientes.Open;
-end;
-
-procedure TFormCadastroPacientes.tb_pacientesAfterInsert(DataSet: TDataSet);
-begin
-  tb_pacientesDataCadastro.Value := Date();
-end;
-
 procedure TFormCadastroPacientes.txtNomeBuscaChange(Sender: TObject);
 begin
-  tb_pacientes.Locate('nome',txtNomeBusca.Text,[loPartialKey]);
+DM.tbPacientes.Locate('nome',txtNomeBusca.Text,[loPartialKey]);
 end;
 
 end.

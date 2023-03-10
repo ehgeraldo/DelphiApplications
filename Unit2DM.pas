@@ -11,17 +11,37 @@ uses
   FireDAC.Comp.Client;
 
 type
-  TDm = class(TDataModule)
+  TDM = class(TDataModule)
     Connection: TFDConnection;
-    dsAgendamentos: TDataSource;
+    tbPacientes: TFDTable;
+    DSpacientes: TDataSource;
+    tbPacientesId: TFDAutoIncField;
+    tbPacientesNome: TStringField;
+    tbPacientesIdade: TIntegerField;
+    tbPacientesDataNascimento: TDateTimeField;
+    tbPacientesCPF: TStringField;
+    tbPacientesRG: TStringField;
+    tbPacientesRua: TStringField;
+    tbPacientesNumero: TIntegerField;
+    tbPacientesBairro: TStringField;
+    tbPacientesCidade: TStringField;
+    tbPacientesEstadoCivil: TStringField;
+    tbPacientesIndicacao: TBooleanField;
+    tbPacientesTelefoneFixo: TStringField;
+    tbPacientesTelefoneCelular: TStringField;
+    tbPacientesEmail: TStringField;
+    tbPacientesObservacoesPaciente: TMemoField;
+    tbPacientesDataCadastro: TDateField;
+    DSAgendamentos: TDataSource;
     tbAgendamentos: TFDTable;
-    tbAgendamentosId: TIntegerField;
+    tbAgendamentosId: TFDAutoIncField;
     tbAgendamentosId_Pacientes: TIntegerField;
     tbAgendamentosDataAgendamento: TDateField;
     tbAgendamentosHoraAgendamento: TStringField;
     tbAgendamentosProcedimentos: TStringField;
     tbAgendamentosValor: TIntegerField;
     tbAgendamentosObservacoesProcedimentos: TMemoField;
+    procedure tbPacientesAfterInsert(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -29,12 +49,17 @@ type
   end;
 
 var
-  Dm: TDm;
+  DM: TDM;
 
 implementation
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
 {$R *.dfm}
+
+procedure TDM.tbPacientesAfterInsert(DataSet: TDataSet);
+begin
+tbPacientesDataCadastro.Value := Date();
+end;
 
 end.

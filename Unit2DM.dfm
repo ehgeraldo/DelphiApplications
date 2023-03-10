@@ -1,4 +1,4 @@
-object Dm: TDm
+object DM: TDM
   OldCreateOrder = False
   Height = 373
   Width = 640
@@ -6,30 +6,138 @@ object Dm: TDm
     Params.Strings = (
       'Database=consultaspacientes'
       'User_Name=root'
-      'Server=200.150.200.205'
-      'Password=tech9182@'
+      'Server=127.0.0.1'
       'DriverID=MySQL')
-    TxOptions.DisconnectAction = xdRollback
     Connected = True
     LoginPrompt = False
     Left = 56
     Top = 128
   end
-  object dsAgendamentos: TDataSource
-    DataSet = tbAgendamentos
-    Left = 328
-    Top = 176
-  end
-  object tbAgendamentos: TFDTable
+  object tbPacientes: TFDTable
     Active = True
+    AfterInsert = tbPacientesAfterInsert
+    IndexFieldNames = 'Id'
     Connection = Connection
-    TableName = 'consultaspacientes.agendamento'
-    Left = 320
-    Top = 104
-    object tbAgendamentosId: TIntegerField
+    TableName = 'consultaspacientes.pacientes'
+    Left = 184
+    Top = 80
+    object tbPacientesId: TFDAutoIncField
       FieldName = 'Id'
       Origin = 'Id'
+      ReadOnly = True
+    end
+    object tbPacientesNome: TStringField
+      FieldName = 'Nome'
+      Origin = 'Nome'
       Required = True
+      Size = 80
+    end
+    object tbPacientesIdade: TIntegerField
+      FieldName = 'Idade'
+      Origin = 'Idade'
+      Required = True
+    end
+    object tbPacientesDataNascimento: TDateTimeField
+      FieldName = 'DataNascimento'
+      Origin = 'DataNascimento'
+      Required = True
+      EditMask = '## / ## / ####;1;_'
+    end
+    object tbPacientesCPF: TStringField
+      FieldName = 'CPF'
+      Origin = 'CPF'
+      Required = True
+      EditMask = '###.###.###-##;1;_'
+    end
+    object tbPacientesRG: TStringField
+      FieldName = 'RG'
+      Origin = 'RG'
+      Required = True
+      EditMask = '##.###.###-#;1;_'
+    end
+    object tbPacientesRua: TStringField
+      FieldName = 'Rua'
+      Origin = 'Rua'
+      Required = True
+      Size = 80
+    end
+    object tbPacientesNumero: TIntegerField
+      FieldName = 'Numero'
+      Origin = 'Numero'
+      Required = True
+    end
+    object tbPacientesBairro: TStringField
+      FieldName = 'Bairro'
+      Origin = 'Bairro'
+      Required = True
+    end
+    object tbPacientesCidade: TStringField
+      FieldName = 'Cidade'
+      Origin = 'Cidade'
+      Required = True
+      Size = 50
+    end
+    object tbPacientesEstadoCivil: TStringField
+      FieldName = 'EstadoCivil'
+      Origin = 'EstadoCivil'
+      Required = True
+      Size = 15
+    end
+    object tbPacientesIndicacao: TBooleanField
+      FieldName = 'Indicacao'
+      Origin = 'Indicacao'
+      Required = True
+    end
+    object tbPacientesTelefoneFixo: TStringField
+      FieldName = 'TelefoneFixo'
+      Origin = 'TelefoneFixo'
+      Required = True
+      EditMask = '(##)####-####;1;_'
+    end
+    object tbPacientesTelefoneCelular: TStringField
+      FieldName = 'TelefoneCelular'
+      Origin = 'TelefoneCelular'
+      Required = True
+      EditMask = '(##)# ####-####;1;_'
+    end
+    object tbPacientesEmail: TStringField
+      FieldName = 'Email'
+      Origin = 'Email'
+      Required = True
+    end
+    object tbPacientesObservacoesPaciente: TMemoField
+      FieldName = 'ObservacoesPaciente'
+      Origin = 'ObservacoesPaciente'
+      Required = True
+      BlobType = ftMemo
+    end
+    object tbPacientesDataCadastro: TDateField
+      FieldName = 'DataCadastro'
+      Origin = 'DataCadastro'
+      Required = True
+      EditMask = '## /## /####;1;_'
+    end
+  end
+  object DSpacientes: TDataSource
+    DataSet = tbPacientes
+    Left = 184
+    Top = 168
+  end
+  object DSAgendamentos: TDataSource
+    DataSet = tbAgendamentos
+    Left = 360
+    Top = 168
+  end
+  object tbAgendamentos: TFDTable
+    IndexFieldNames = 'Id'
+    Connection = Connection
+    TableName = 'consultaspacientes.agendamento'
+    Left = 360
+    Top = 72
+    object tbAgendamentosId: TFDAutoIncField
+      FieldName = 'Id'
+      Origin = 'Id'
+      ProviderFlags = [pfInWhere, pfInKey]
     end
     object tbAgendamentosId_Pacientes: TIntegerField
       FieldName = 'Id_Pacientes'
@@ -40,13 +148,11 @@ object Dm: TDm
       FieldName = 'DataAgendamento'
       Origin = 'DataAgendamento'
       Required = True
-      EditMask = '## / ## / ####;1;_'
     end
     object tbAgendamentosHoraAgendamento: TStringField
       FieldName = 'HoraAgendamento'
       Origin = 'HoraAgendamento'
       Required = True
-      EditMask = '##:##;1;_'
       Size = 8
     end
     object tbAgendamentosProcedimentos: TStringField
