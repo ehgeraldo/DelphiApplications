@@ -2,7 +2,7 @@ object FormPrincipal: TFormPrincipal
   Left = 0
   Top = 0
   Caption = 'Clinica Dentaria'
-  ClientHeight = 513
+  ClientHeight = 404
   ClientWidth = 782
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
@@ -19,7 +19,7 @@ object FormPrincipal: TFormPrincipal
     Left = 0
     Top = 97
     Width = 782
-    Height = 416
+    Height = 307
     Align = alClient
     Center = True
     Picture.Data = {
@@ -27336,10 +27336,9 @@ object FormPrincipal: TFormPrincipal
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
-    ExplicitLeft = 1
-    ExplicitTop = 103
-    ExplicitWidth = 105
-    ExplicitHeight = 105
+    ExplicitLeft = 176
+    ExplicitTop = 209
+    ExplicitHeight = 416
   end
   object Panel1: TPanel
     Left = 0
@@ -27354,6 +27353,7 @@ object FormPrincipal: TFormPrincipal
       Top = 1
       Width = 88
       Height = 95
+      Cursor = crHandPoint
       Align = alLeft
       Caption = 'Agendamentos'
       Glyph.Data = {
@@ -27745,13 +27745,13 @@ object FormPrincipal: TFormPrincipal
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
       Layout = blGlyphTop
       TabOrder = 0
-      OnClick = BitBtn1Click
     end
-    object BitBtn2: TBitBtn
+    object btnPacientes: TBitBtn
       Left = 1
       Top = 1
       Width = 88
       Height = 95
+      Cursor = crHandPoint
       Align = alLeft
       Caption = 'Pacientes'
       Glyph.Data = {
@@ -28143,7 +28143,7 @@ object FormPrincipal: TFormPrincipal
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
       Layout = blGlyphTop
       TabOrder = 1
-      OnClick = BitBtn2Click
+      OnClick = btnPacientesClick
     end
   end
   object MainMenu1: TMainMenu
