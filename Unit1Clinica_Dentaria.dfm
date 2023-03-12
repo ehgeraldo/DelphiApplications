@@ -2,7 +2,7 @@ object FormPrincipal: TFormPrincipal
   Left = 0
   Top = 0
   Caption = 'Clinica Dentaria'
-  ClientHeight = 404
+  ClientHeight = 331
   ClientWidth = 782
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
@@ -19,7 +19,7 @@ object FormPrincipal: TFormPrincipal
     Left = 0
     Top = 97
     Width = 782
-    Height = 307
+    Height = 234
     Align = alClient
     Center = True
     Picture.Data = {

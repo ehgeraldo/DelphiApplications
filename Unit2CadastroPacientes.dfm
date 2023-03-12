@@ -53,10 +53,9 @@ object FormCadastroPacientes: TFormCadastroPacientes
     Top = 100
     Width = 909
     Height = 342
-    ActivePage = tshPrincipal
+    ActivePage = tshGeral
     Align = alClient
     TabOrder = 1
-    ExplicitHeight = 361
     object tshGeral: TTabSheet
       Caption = 'Pesquisa'
       ImageIndex = 2
@@ -507,7 +506,6 @@ object FormCadastroPacientes: TFormCadastroPacientes
     Height = 85
     Align = alBottom
     TabOrder = 2
-    ExplicitLeft = 8
     object btnEditar: TBitBtn
       Left = 111
       Top = 3
@@ -1554,7 +1552,7 @@ object FormCadastroPacientes: TFormCadastroPacientes
     Connection = Dm.Connection
     UpdateOptions.UpdateTableName = 'consultaspacientes.pacientes'
     TableName = 'consultaspacientes.pacientes'
-    Left = 352
+    Left = 808
     Top = 296
     object tb_pacientesId: TFDAutoIncField
       FieldName = 'Id'
@@ -1649,7 +1647,7 @@ object FormCadastroPacientes: TFormCadastroPacientes
   end
   object dstb_pacientes: TDataSource
     DataSet = tb_pacientes
-    Left = 376
-    Top = 328
+    Left = 808
+    Top = 360
   end
 end
