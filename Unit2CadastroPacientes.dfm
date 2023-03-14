@@ -1,4 +1,4 @@
-object FormCadastroPacientes: TFormCadastroPacientes
+﻿object FormCadastroPacientes: TFormCadastroPacientes
   Left = 0
   Top = 0
   Caption = 'FormCadastroPacientes'
@@ -53,7 +53,7 @@ object FormCadastroPacientes: TFormCadastroPacientes
     Top = 100
     Width = 909
     Height = 342
-    ActivePage = tshGeral
+    ActivePage = tshPrincipal
     Align = alClient
     TabOrder = 1
     object tshGeral: TTabSheet
@@ -402,6 +402,18 @@ object FormCadastroPacientes: TFormCadastroPacientes
         DataSource = dstb_pacientes
         TabOrder = 7
         OnKeyPress = KeyPress
+      end
+      object rgIndicação: TRadioGroup
+        Left = 584
+        Top = 188
+        Width = 167
+        Height = 37
+        Caption = 'Indica'#231#227'o'
+        Columns = 2
+        Items.Strings = (
+          'Sim'
+          'N'#227'o')
+        TabOrder = 17
       end
     end
     object tshControle: TTabSheet

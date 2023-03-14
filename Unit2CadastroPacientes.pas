@@ -86,6 +86,7 @@ type
     btnSalvar: TBitBtn;
     btnCancelar: TBitBtn;
     btnNovo: TBitBtn;
+    rgIndicação: TRadioGroup;
     procedure txtNomeBuscaChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
